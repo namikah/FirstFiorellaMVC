@@ -27,5 +27,7 @@ namespace FirstFiorellaMVC.DataAccessLayer
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<BlogContext> BlogContexts { get; set; }
+
+        public DbSet<Author> Authors { get; set; }
     }
 }

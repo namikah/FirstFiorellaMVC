@@ -22,5 +22,7 @@ namespace FirstFiorellaMVC.ViewModels
         public List<Blog> Blogs { get; set; }
 
         public IContext BlogContext { get; set; }
+
+        public List<Author> Authors { get; set; }
     }
 }

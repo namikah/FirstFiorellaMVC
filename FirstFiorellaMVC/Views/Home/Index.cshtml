@@ -10,7 +10,7 @@
     var subcribe = homeViewModel.Subcribe;
     var blogs = homeViewModel.Blogs;
     var blogContext = homeViewModel.BlogContext;
-
+    var authors = homeViewModel.Authors;
 }
 
 
@@ -231,36 +231,23 @@
         <div class="row py-5 justify-content-center">
             <div class="col-md-8 col-xl-6">
                 <div class="owl-carousel say">
-                    <div>
+                  @foreach (var item in authors)
+                 {
+                       <div>
                         <div class="item text-center">
                             <div class="img d-flex justify-content-center">
-                                <img src="~/img/testimonial-img-1.png" alt="">
+                                <img src="~/img/@item.Image" alt="">
                             </div>
                             <div class="text text-muted pt-3 pb-5">
-                                <i>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus
-                                    lingua. </i>
+                                <i>@item.Description</i>
                             </div>
                             <div class="author">
-                                <h6>Anna Barnes</h6>
-                                <p class="text-black-50">Florist</p>
+                                <h6>@item.Name</h6>
+                                <p class="text-black-50">@item.Position</p>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="item text-center">
-                            <div class="img d-flex justify-content-center">
-                                <img src="~/img/testimonial-img-2.png" alt="">
-                            </div>
-                            <div class="text text-muted pt-3 pb-5">
-                                <i>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                    ligula eget. </i>
-                            </div>
-                            <div class="author">
-                                <h6>Jasmine White</h6>
-                                <p class="text-black-50">Florist</p>
-                            </div>
-                        </div>
-                    </div>
+                 }
                 </div>
             </div>
         </div>

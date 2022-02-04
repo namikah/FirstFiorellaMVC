@@ -26,6 +26,7 @@ namespace FirstFiorellaMVC.Controllers
             var subcribe = _appDbContext.Subcribes.SingleOrDefault();
             var blogs = _appDbContext.Blogs.ToList();
             var blogContext = _appDbContext.BlogContexts.SingleOrDefault();
+            var authors = _appDbContext.Authors.ToList();
 
             //Select
             //var test = _dbContext.Products.Select(x => new
@@ -45,6 +46,7 @@ namespace FirstFiorellaMVC.Controllers
                 Subcribe = subcribe,
                 BlogContext = blogContext,
                 Blogs = blogs,
+                Authors = authors,
             });
         }
     }
