@@ -29,6 +29,7 @@ namespace FirstFiorellaMVC.Controllers
             var authors = _appDbContext.Authors.ToList();
             var instagrams = _appDbContext.Instagrams.ToList();
             var socials = _appDbContext.Socials.ToList();
+            var menus = _appDbContext.Menus.ToList();
 
             //Select
             //var test = _dbContext.Products.Select(x => new
@@ -51,6 +52,7 @@ namespace FirstFiorellaMVC.Controllers
                 Authors = authors,
                 Instagrams = instagrams,
                 Socials = socials,
+                Menus = menus,
             });
         }
     }

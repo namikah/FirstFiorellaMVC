@@ -33,5 +33,7 @@ namespace FirstFiorellaMVC.DataAccessLayer
         public DbSet<Instagram> Instagrams { get; set; }
 
         public DbSet<Social> Socials { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
     }
 }

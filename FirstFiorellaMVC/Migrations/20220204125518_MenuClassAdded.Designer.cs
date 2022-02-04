@@ -4,14 +4,16 @@ using FirstFiorellaMVC.DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FirstFiorellaMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220204125518_MenuClassAdded")]
+    partial class MenuClassAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,13 +203,18 @@ namespace FirstFiorellaMVC.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("MenuId")
+                    b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MenusId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MenusId");
 
                     b.ToTable("Menus");
                 });
@@ -283,6 +290,15 @@ namespace FirstFiorellaMVC.Migrations
                         .IsRequired();
 
                     b.Navigation("Position");
+                });
+
+            modelBuilder.Entity("FirstFiorellaMVC.Models.Menu", b =>
+                {
+                    b.HasOne("FirstFiorellaMVC.Models.Menu", "Menus")
+                        .WithMany()
+                        .HasForeignKey("MenusId");
+
+                    b.Navigation("Menus");
                 });
 
             modelBuilder.Entity("FirstFiorellaMVC.Models.Position", b =>

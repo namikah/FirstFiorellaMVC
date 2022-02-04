@@ -28,5 +28,7 @@ namespace FirstFiorellaMVC.ViewModels
         public List<Instagram> Instagrams { get; set; }
 
         public List<Social> Socials { get; set; }
+
+        public List<Menu> Menus { get; set; }
     }
 }
