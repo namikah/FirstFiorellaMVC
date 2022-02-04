@@ -9,5 +9,10 @@ namespace FirstFiorellaMVC.Models
         public string Name { get; set; }
 
         public ICollection<Expert> experts { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
