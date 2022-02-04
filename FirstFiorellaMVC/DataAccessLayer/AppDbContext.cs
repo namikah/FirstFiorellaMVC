@@ -10,6 +10,14 @@ namespace FirstFiorellaMVC.DataAccessLayer
 
         }
 
+        public DbSet<Slider> Sliders { get; set; }
+
+        public DbSet<SliderImage> SliderImages { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
         public DbSet<AboutImage> AboutImages { get; set; }
 
         public DbSet<AboutContext> AboutContexts { get; set; }

@@ -5,6 +5,14 @@ namespace FirstFiorellaMVC.ViewModels
 {
     public class HomeViewModel
     {
+        public List<SliderImage> SliderImages { get; set; }
+
+        public Slider Slider { get; set; }
+
+        public List<Product> Products { get; set; }
+
+        public List<Category> Categories { get; set; }
+
         public AboutImage AboutImage { get; set; }
 
         public IContext AboutContext { get; set; }

@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "Index";
     HomeViewModel homeViewModel = Model;
+    List<SliderImage> sliderImages = homeViewModel.SliderImages;
+    Slider slider = homeViewModel.Slider;
     var aboutImage = homeViewModel.AboutImage;
     var aboutContext = homeViewModel.AboutContext;
     var aboutUnstyledLists = homeViewModel.AboutUnstyledLists;
@@ -12,12 +14,13 @@
     var blogContext = homeViewModel.BlogContext;
     var authors = homeViewModel.Authors;
     var instagrams = homeViewModel.Instagrams;
+ 
 }
 
 
 <!-- SLIDER START -->
 
-@*<section id="slider">
+<section id="slider">
     <div class="owl-carousel slider">
         @foreach (var item in sliderImages)
        {
@@ -97,7 +100,7 @@
            }
         </div>
     </div>
-</section>*@
+</section>
 
 <!-- PRODUCTS END -->
 
