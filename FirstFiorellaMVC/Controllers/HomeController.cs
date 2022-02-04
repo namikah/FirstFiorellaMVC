@@ -23,6 +23,7 @@ namespace FirstFiorellaMVC.Controllers
             var experts = _appDbContext.experts.Include(x => x.Position).ToList();
             var expertContext = _appDbContext.expertContexts.SingleOrDefault();
             var positions = _appDbContext.positions.ToList();
+            var subcribe = _appDbContext.subcribes.SingleOrDefault();
 
             //Select
             //var test = _dbContext.Products.Select(x => new
@@ -38,7 +39,8 @@ namespace FirstFiorellaMVC.Controllers
                 AboutUnstyledLists = aboutUnstyledLists,
                 Experts = experts,
                 ExpertContext = expertContext,
-                Positions = positions
+                Positions = positions,
+                Subcribe = subcribe,
             });
         }
     }

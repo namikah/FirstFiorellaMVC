@@ -21,5 +21,7 @@ namespace FirstFiorellaMVC.DataAccessLayer
         public DbSet<ExpertContext> expertContexts { get; set; }
 
         public DbSet<Position> positions { get; set; }
+
+        public DbSet<Subcribe> subcribes { get; set; }
     }
 }

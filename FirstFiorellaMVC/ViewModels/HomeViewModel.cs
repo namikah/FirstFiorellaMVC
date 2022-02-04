@@ -16,5 +16,7 @@ namespace FirstFiorellaMVC.ViewModels
         public List<Position> Positions { get; set; }
 
         public ExpertContext ExpertContext { get; set; }
+
+        public Subcribe Subcribe { get; set; }
     }
 }
