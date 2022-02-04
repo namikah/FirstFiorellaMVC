@@ -26,5 +26,7 @@ namespace FirstFiorellaMVC.ViewModels
         public List<Author> Authors { get; set; }
 
         public List<Instagram> Instagrams { get; set; }
+
+        public List<Social> Socials { get; set; }
     }
 }

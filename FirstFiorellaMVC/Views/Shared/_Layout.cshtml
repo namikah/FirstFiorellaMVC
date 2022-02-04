@@ -1,6 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
+@{
+    HomeViewModel homeViewModel = Model;
+}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -364,10 +368,10 @@
                     <img src="~/img/footer-bottom-1.png" class="fluid" alt="">
                 </div>
                 <div class=" col-lg-4 text-center text-lg-right mt-3 mt-lg-0">
-                    <a class="text-black-50 mr-5"
-                        href="https://www.linkedin.com/in/bakhtiyar-shamilzada-145159185/">LINKEDIN</a
-                        class="text-black-50">
-                    <a class="text-black-50" href="https://www.facebook.com/shamilzada.bakhtiyar">FACEBOOK</a>
+                   @foreach (var item in homeViewModel.Socials)
+                  {
+                       <a class="text-black-50 ml-5"href="https://www.linkedin.com/in/bakhtiyar-shamilzada-145159185/">@item.Name.ToUpper()</a>
+                  }
                 </div>
             </div>
         </div>
