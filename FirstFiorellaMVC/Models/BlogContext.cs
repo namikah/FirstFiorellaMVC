@@ -1,6 +1,6 @@
 ﻿namespace FirstFiorellaMVC.Models
 {
-    public class ExpertContext : IContext
+    public class BlogContext : IContext
     {
         public int Id { get; set; }
 

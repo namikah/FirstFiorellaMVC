@@ -1,6 +1,6 @@
 ﻿namespace FirstFiorellaMVC.Models
 {
-    public class ExpertContext : IContext
+    public interface IContext
     {
         public int Id { get; set; }
 

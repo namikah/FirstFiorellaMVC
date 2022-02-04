@@ -17,13 +17,15 @@ namespace FirstFiorellaMVC.Controllers
 
         public IActionResult Index()
         {
-            var aboutImage = _appDbContext.aboutImages.SingleOrDefault();
-            var aboutContext = _appDbContext.aboutContexts.SingleOrDefault();
-            var aboutUnstyledLists = _appDbContext.aboutUnstyledLists.ToList();
-            var experts = _appDbContext.experts.Include(x => x.Position).ToList();
-            var expertContext = _appDbContext.expertContexts.SingleOrDefault();
-            var positions = _appDbContext.positions.ToList();
-            var subcribe = _appDbContext.subcribes.SingleOrDefault();
+            var aboutImage = _appDbContext.AboutImages.SingleOrDefault();
+            var aboutContext = _appDbContext.AboutContexts.SingleOrDefault();
+            var aboutUnstyledLists = _appDbContext.AboutUnstyledLists.ToList();
+            var experts = _appDbContext.Experts.Include(x => x.Position).ToList();
+            var expertContext = _appDbContext.ExpertContexts.SingleOrDefault();
+            var positions = _appDbContext.Positions.ToList();
+            var subcribe = _appDbContext.Subcribes.SingleOrDefault();
+            var blogs = _appDbContext.Blogs.ToList();
+            var blogContext = _appDbContext.BlogContexts.SingleOrDefault();
 
             //Select
             //var test = _dbContext.Products.Select(x => new
@@ -41,6 +43,8 @@ namespace FirstFiorellaMVC.Controllers
                 ExpertContext = expertContext,
                 Positions = positions,
                 Subcribe = subcribe,
+                BlogContext = blogContext,
+                Blogs = blogs,
             });
         }
     }

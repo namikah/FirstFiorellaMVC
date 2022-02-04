@@ -7,7 +7,7 @@ namespace FirstFiorellaMVC.ViewModels
     {
         public AboutImage AboutImage { get; set; }
 
-        public AboutContext AboutContext { get; set; }
+        public IContext AboutContext { get; set; }
 
         public  List<AboutUnstyledList> AboutUnstyledLists { get; set; }
 
@@ -15,8 +15,12 @@ namespace FirstFiorellaMVC.ViewModels
 
         public List<Position> Positions { get; set; }
 
-        public ExpertContext ExpertContext { get; set; }
+        public IContext ExpertContext { get; set; }
 
         public Subcribe Subcribe { get; set; }
+
+        public List<Blog> Blogs { get; set; }
+
+        public IContext BlogContext { get; set; }
     }
 }
