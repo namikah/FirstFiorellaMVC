@@ -27,6 +27,7 @@ namespace FirstFiorellaMVC.Controllers
             var blogs = _appDbContext.Blogs.ToList();
             var blogContext = _appDbContext.BlogContexts.SingleOrDefault();
             var authors = _appDbContext.Authors.ToList();
+            var instagrams = _appDbContext.Instagrams.ToList();
 
             //Select
             //var test = _dbContext.Products.Select(x => new
@@ -47,6 +48,7 @@ namespace FirstFiorellaMVC.Controllers
                 BlogContext = blogContext,
                 Blogs = blogs,
                 Authors = authors,
+                Instagrams = instagrams,
             });
         }
     }
