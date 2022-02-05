@@ -1,4 +1,6 @@
-﻿namespace FirstFiorellaMVC.Models
+﻿using System.Collections.Generic;
+
+namespace FirstFiorellaMVC.Models
 {
     public class Product
     {
@@ -8,7 +10,7 @@
 
         public double Price { get; set; }
 
-        public string Image { get; set; }
+        public  List<ProductImage> Images{ get; set; }
 
         public int CategoryId { get; set; }
 

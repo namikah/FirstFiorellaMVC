@@ -43,5 +43,7 @@ namespace FirstFiorellaMVC.DataAccessLayer
         public DbSet<Social> Socials { get; set; }
 
         public DbSet<Menu> Menus { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

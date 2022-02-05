@@ -4,14 +4,16 @@ using FirstFiorellaMVC.DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FirstFiorellaMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220204220219_ChangeProductsImagePropertyAndAddProductImagesClassSelfJoin")]
+    partial class ChangeProductsImagePropertyAndAddProductImagesClassSelfJoin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,6 +254,9 @@ namespace FirstFiorellaMVC.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -261,6 +266,8 @@ namespace FirstFiorellaMVC.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("ImageId");
 
                     b.ToTable("Products");
                 });
@@ -280,12 +287,7 @@ namespace FirstFiorellaMVC.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductImages");
                 });
@@ -392,16 +394,13 @@ namespace FirstFiorellaMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FirstFiorellaMVC.Models.ProductImage", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
                     b.Navigation("Category");
-                });
 
-            modelBuilder.Entity("FirstFiorellaMVC.Models.ProductImage", b =>
-                {
-                    b.HasOne("FirstFiorellaMVC.Models.Product", "Product")
-                        .WithMany("Images")
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Product");
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("FirstFiorellaMVC.Models.Category", b =>
@@ -412,11 +411,6 @@ namespace FirstFiorellaMVC.Migrations
             modelBuilder.Entity("FirstFiorellaMVC.Models.Position", b =>
                 {
                     b.Navigation("Experts");
-                });
-
-            modelBuilder.Entity("FirstFiorellaMVC.Models.Product", b =>
-                {
-                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

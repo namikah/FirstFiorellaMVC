@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+    HomeViewModel homeViewModel = Model;
+}
+
+<div class="row col-6">
+    @foreach (var item in homeViewModel.ImagesByProductId)
+{
+        if (item.ImageId == null)
+        {
+                <div class="col-6">
+                <img src="~/img/@item.Name" class="img-fluid" ><img/>
+                <div>@item.Product.Name</div>
+                </div>
+        }
+        else
+        {
+                <div class="col-2">
+                <img src="~/img/@item.Name" class="img-fluid" ><img/>
+                <div>@item.Product.Name</div>
+                </div>
+        }
+    }
+</div>
+

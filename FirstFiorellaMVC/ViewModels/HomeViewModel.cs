@@ -38,5 +38,10 @@ namespace FirstFiorellaMVC.ViewModels
         public List<Social> Socials { get; set; }
 
         public List<Menu> Menus { get; set; }
+
+        public List<ProductImage> ProductImages { get; set; }
+
+        public List<ProductImage> ImagesByProductId { get; set; }
+
     }
 }

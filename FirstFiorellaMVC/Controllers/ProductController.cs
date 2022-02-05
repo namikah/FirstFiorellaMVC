@@ -7,26 +7,17 @@ using System.Linq;
 
 namespace FirstFiorellaMVC.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
         private readonly AppDbContext _appDbContext;
 
-        public HomeController(AppDbContext appDbContext)
+        public ProductController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Detail(int? id)
         {
-
-
-            //Select
-            //var test = _dbContext.Products.Select(x => new
-            //{
-            //    x.Id,
-            //    x.Name
-            //}).ToList();
-
             return View(new HomeViewModel
             {
                 Products = _appDbContext.Products.ToList(),
@@ -47,6 +38,7 @@ namespace FirstFiorellaMVC.Controllers
                 Socials = _appDbContext.Socials.ToList(),
                 Menus = _appDbContext.Menus.ToList(),
                 ProductImages = _appDbContext.ProductImages.ToList(),
+                ImagesByProductId = _appDbContext.ProductImages.ToList().FindAll(x=>x.Product.Id == id),
             });
         }
     }
