@@ -36,7 +36,16 @@
                     <h6>Dimension: @detail.Dimension</h6>
                     <h6>Weight: @detail.Weight</h6>
                     <h6>SKU: @detail.SKUCode</h6>
-                    <h6>Price: @detail.Price$</h6>
+                     @{
+                                if(detail.CampaignId == null)
+                                {
+                                    <h6>Price: @detail.Price$</h6>
+                                }
+                                else
+                                {
+                                    <h6>Price: <span class="text-black-50" style="text-decoration:line-through">@detail.Price$</span> - <span>@Math.Round(detail.Price - detail.Price*detail.Campaign.Discount/100,2)$</span></h6>
+                                }
+                      }
         </div>
     </div>
 </div>
