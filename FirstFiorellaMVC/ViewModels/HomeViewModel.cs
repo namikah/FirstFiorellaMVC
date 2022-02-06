@@ -43,5 +43,7 @@ namespace FirstFiorellaMVC.ViewModels
 
         public List<ProductImage> ImagesByProductId { get; set; }
 
+        public List<Campaign> Campaigns { get; set; }
+
     }
 }

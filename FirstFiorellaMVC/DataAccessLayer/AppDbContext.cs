@@ -45,5 +45,7 @@ namespace FirstFiorellaMVC.DataAccessLayer
         public DbSet<Menu> Menus { get; set; }
 
         public DbSet<ProductImage> ProductImages { get; set; }
+
+        public DbSet<Campaign> Campaigns { get; set; }
     }
 }

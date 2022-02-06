@@ -4,14 +4,16 @@ using FirstFiorellaMVC.DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FirstFiorellaMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220206143207_AddCampaignTableForProducts")]
+    partial class AddCampaignTableForProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,24 +138,6 @@ namespace FirstFiorellaMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BlogContexts");
-                });
-
-            modelBuilder.Entity("FirstFiorellaMVC.Models.Campaign", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Campaigns");
                 });
 
             modelBuilder.Entity("FirstFiorellaMVC.Models.Category", b =>
@@ -290,8 +274,6 @@ namespace FirstFiorellaMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CampaignId");
-
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
@@ -418,17 +400,11 @@ namespace FirstFiorellaMVC.Migrations
 
             modelBuilder.Entity("FirstFiorellaMVC.Models.Product", b =>
                 {
-                    b.HasOne("FirstFiorellaMVC.Models.Campaign", "Campaign")
-                        .WithMany("Products")
-                        .HasForeignKey("CampaignId");
-
                     b.HasOne("FirstFiorellaMVC.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Campaign");
 
                     b.Navigation("Category");
                 });
@@ -440,11 +416,6 @@ namespace FirstFiorellaMVC.Migrations
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("FirstFiorellaMVC.Models.Campaign", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("FirstFiorellaMVC.Models.Category", b =>

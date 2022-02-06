@@ -47,6 +47,7 @@ namespace FirstFiorellaMVC.Controllers
                 Socials = _appDbContext.Socials.ToList(),
                 Menus = _appDbContext.Menus.ToList(),
                 ProductImages = _appDbContext.ProductImages.ToList(),
+                Campaigns = _appDbContext.Campaigns.ToList(),
             });
         }
     }
