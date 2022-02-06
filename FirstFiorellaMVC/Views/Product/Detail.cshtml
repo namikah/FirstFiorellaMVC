@@ -4,31 +4,39 @@
     HomeViewModel homeViewModel = Model;
 }
 
-<div class="row container mb-5 mt-5">
-    @*All small images*@
-    <div class="col-1 d-flex flex-column justify-content-start align-item-center">
-        @foreach (var item in homeViewModel.ImagesByProductId.FindAll(x => x.ImageId != null))
-        {
-            <div class="mb-2" style="border: 1px solid black; cursor:pointer;">
-                 <img src="~/img/@item.Name" class="img-fluid" ><img/>
-            </div>
+<div class="container">
+    <div class="row mb-5 mt-5">
+        @*All small images*@
+        @{
+            var images = homeViewModel.ImagesByProductId.FindAll(x => x.ImageId != null);
+            if(images.Count != 0)
+            {
+                <div class="col-1 d-flex flex-column justify-content-start align-item-center">
+                @foreach (var item in homeViewModel.ImagesByProductId.FindAll(x => x.ImageId != null))
+                {
+                    <div class="mb-2" style="border: 1px solid black; cursor:pointer;">
+                    <img src="~/img/@item.Name" class="img-fluid" ><img/>
+                    </div>
+                }   
+                </div>
+            }
         }
-    </div>
-    @*One Big images*@
-    <div class="col-5">
+        @*One Big images*@
+        <div class="col-5">
             <div  style="border: 1px solid black; cursor:pointer;">
                  <img src="~/img/@homeViewModel.ImagesByProductId.Find(x=>x.ImageId == null).Name" class="img-fluid"><img/>
             </div>
-    </div>
-    @*Product Details*@
-     <div class="col-6 d-flex flex-column justify-content-start align-item-center">
+        </div>
+        @*Product Details*@
+       <div class="col-6 d-flex flex-column justify-content-start align-item-center">
         @{
             var detail = homeViewModel.ImagesByProductId.Find(x => x.ImageId == null).Product;
         }
-                    <h4 style="color:red;">@detail.Name</h4>
+                    <h4 style="color:red; margin-bottom:20px;">@detail.Name</h4>
                     <h6>Dimension: @detail.Dimension</h6>
                     <h6>Weight: @detail.Weight</h6>
                     <h6>SKU: @detail.SKUCode</h6>
-                    <h6>Price: @detail.Price</h6>
+                    <h6>Price: @detail.Price$</h6>
+        </div>
     </div>
 </div>
