@@ -10,6 +10,8 @@ namespace FirstFiorellaMVC.Models
         [StringLength(maximumLength:50)]
         public string Name { get; set; }
 
+        public int ProductId { get; set; }
+
         public Product Product { get; set; }
 
         public int? ImageId { get; set; }

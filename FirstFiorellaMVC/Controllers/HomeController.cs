@@ -27,7 +27,7 @@ namespace FirstFiorellaMVC.Controllers
             //    x.Name
             //}).ToList();
 
-            return View(new HomeViewModel
+            return View(new HomeViewModel()
             {
                 Products = _appDbContext.Products.ToList(),
                 Categories = _appDbContext.Categories.ToList(),
