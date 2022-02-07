@@ -38,7 +38,7 @@ namespace FirstFiorellaMVC.Controllers
                 Socials = _appDbContext.Socials.ToList(),
                 Menus = _appDbContext.Menus.ToList(),
                 ProductImages = _appDbContext.ProductImages.ToList(),
-                ImagesByProductId = _appDbContext.ProductImages.ToList().FindAll(x=>x.Product.Id == id),
+                ImagesByProductId = _appDbContext.ProductImages.Where(x => x.Product.Id == id).ToList(),
                 Campaigns = _appDbContext.Campaigns.ToList(),
             });
         }
